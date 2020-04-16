@@ -3,14 +3,14 @@ kind: DaemonSet
 metadata:
   name: {{ template "k8s-ssm-agent.fullname" . }}
   labels:
-    app: {{ template "k8s-ssm-agent.fullname" . }}
-    chart: {{ template "k8s-ssm-agent.fullname" . }}
+    app: {{ template "k8s-ssm-agent.name" . }}
+    chart: {{ template "k8s-ssm-agent.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   selector:
     matchLabels:
-      app: {{ template "k8s-ssm-agent.fullname" . }}
+      app: {{ template "k8s-ssm-agent.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
